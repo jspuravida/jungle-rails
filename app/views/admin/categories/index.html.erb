@@ -1,0 +1,12 @@
+<article class="category">
+  <header>
+    <h1> <%= @categories.name %> </h1>
+  </header>
+  <% @categories.each do |category| %>
+  <tr>
+    <td>
+      <h5><%= category.name %> </h5>
+    </td>
+  </tr>
+</article>
+<% end %>
