@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Welcome to THE JUNGLE!!!</h2>
+
+
+    <p>
+      Thank you for shopping at THE JUNGLE!<br>
+      Your order details:<br>
+      <% @line_items.each do |line_item| %>
+      <%= line_item %><br>
+      <% end %><br>
+
+      Total cost: <%= number_to_currency(@order.total_cents/100.00, :precision => 2) %>
+
+    </p>
+
+    <p>Thanks for ordering and have a great day!</p>
+  </body>
+</html>
