@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @line_items = LineItem.where(order_id: @order.id)
 
     if @order.valid?
-      UserMailer.welcome_email(@user, @order, @line_items).deliver_now
+      UserMailer.order_email(@user, @order, @line_items).deliver_now
       empty_cart!
       redirect_to @order, notice: 'Your Order has been placed.'
     else
