@@ -27,12 +27,29 @@
       </div>
     </div>
 
+    <div>
+      <h3>Write A Review</h3>
+      <dl class="dl-horizontal">
+        <%= form_for ([@product, @review]) do |f| %>
+          <p><%= f.text_area :description %></p>
+      </dl>
+      <%= f.select :rating, [['good', 5], ['pretty good', 4], ['not bad', 3], ['poor', 2], ['crap', 1]] %>
+        <%= f.submit "Submit!" %>
+        <% end %>
+    </div>
+
     <div class="row">
       <h5>Review Section</h5>
       <dl class="dl-horizontal">
         <%= render partial: 'review', collection: @product.reviews %>
       </dl>
     </div>
+
+
+
+
+
+
 
   </article>
 
