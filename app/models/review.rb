@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
 
-  belongs_to :product
+  belongs_to :product, required: true
   belongs_to :user
 
   validates :product_id, presence: true
