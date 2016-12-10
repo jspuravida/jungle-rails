@@ -29,13 +29,27 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+## USERS
+
+user1 = User.create({
+  id: 3,
+  email: 'sample@hotmail.com',
+  firstname: 'Tom',
+  lastname: 'Jerry',
+  password: '12345'
+})
+
+puts "Created user Tom Jerry ..."
+
+
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+prod1 = cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -132,5 +146,12 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+review1 = prod1.reviews.create!({
+  user_id: 3,
+  description: "Love itttttttt",
+  rating: 5
+})
 
 puts "DONE!"
