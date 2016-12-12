@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
     private
-
+# Creating the authorization for the reviews_controller file
     def authorize
      redirect_to '/login' unless current_user
     end
