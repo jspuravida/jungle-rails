@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  private
+    private
 
-
-
-
+    def authorize
+     redirect_to '/login' unless current_user
+    end
 
     def cart
       # value = cookies[:cart] || JSON.generate({})

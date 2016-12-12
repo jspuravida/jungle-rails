@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_filter :authorize   #added to restrict all non-admin users
 
   def create
     @product = Product.find(params[:product_id])
@@ -11,8 +12,7 @@ class ReviewsController < ApplicationController
       puts @review.errors.messages
     end
 
-
-
+# Checking validation errors (reviews are not saving, etc)
 # person = Person.new
 # person.valid? # => false
 # person.errors.messages
@@ -27,7 +27,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    Review.find(params[:id]).destroy
+    redirect_to product_path(params[:product_id])
+  end
+
   private
+
+
   def review_params
     params.require(:review).permit(:description, :rating)
   end

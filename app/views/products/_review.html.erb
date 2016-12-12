@@ -12,3 +12,10 @@
 <dd>
   <%= review.rating %>
 </dd>
+<!-- This is allowing a DELETE button if the reviewer is the same as the logged in user -->
+<% if current_user && current_user.id == review.user.id %>
+  <%= link_to 'Delete', [review.product, review],
+  method: :delete,
+  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
+<!-- This is allowing a DELETE button if the reviewer is the same as the logged in user -->
