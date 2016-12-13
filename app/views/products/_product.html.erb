@@ -11,9 +11,11 @@
 
   <footer class="actions">
 
+<!-- Area for average product ratings, displayed when applicable -->
     <% if product.has_review? %>
     <p>Average Product Ratings: <%= product.average_rating %></p>
     <% end %>
+<!-- Area for average product ratings, displayed when applicable -->
 
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
@@ -23,19 +25,19 @@
     <% end %>
   </footer>
 
+<!-- Stated price for item -->
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+<!-- Stated price for item -->
 
-
+<!-- Sold out feature when quantity = 0 -->
   <% if (product.soldout?)  %>
     <aside class="soldout">
       <div>SOLD OUT!</div>
     </aside>
   <% end %>
-
-
-
+<!-- Sold out feature when quantity = 0 -->
 </article>
 
 

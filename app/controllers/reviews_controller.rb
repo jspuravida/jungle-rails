@@ -6,9 +6,14 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.create(review_params)
     @review.user = current_user
 
-
     if ! @review.valid?
-      puts "BAD REVIEW"
+      puts "Invalid review"
+      puts @review.errors.messages
+    end
+
+    if @review.valid?
+      @review.save
+      puts "Valid review"
       puts @review.errors.messages
     end
 
@@ -17,12 +22,11 @@ class ReviewsController < ApplicationController
 # person.valid? # => false
 # person.errors.messages
 
-
     if @review.save
-      puts "I saved"
+      puts "Review saved"
       redirect_to product_path(@product)
     else
-      puts "save failed"
+      puts "Review not saved"
       redirect_to '/'
     end
   end
@@ -33,7 +37,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-
 
   def review_params
     params.require(:review).permit(:description, :rating)

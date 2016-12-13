@@ -23,7 +23,6 @@
 
    <!--- Only viewable for logged-in users -->
     <% if current_user %>
-    <form>
       <div class="row">
       <div class="col-md-6">
        <h3>Write Your Review</h3>
@@ -37,12 +36,12 @@
      </div>
      <!--- Only viewable for logged-in users -->
 
+     <!-- Past reviews always showing to guests online -->
      <div class="col-md-6">
      <div class="row">
        <h3>Past Reviews</h3>
           <%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse, class: "form-control" %>
      </div>
      </div>
-    </form>
   </article>
 </section>

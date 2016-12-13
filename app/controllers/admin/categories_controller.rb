@@ -17,16 +17,8 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new
   end
 
-  def show
-    # @categories = Category.new
-  end
-
   def category_params
   params.require(:category).permit(:name)
   end
-
-
-end
-
 # collecting from Category class, putting as a instance variable name
-
+end

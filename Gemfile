@@ -46,7 +46,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
   gem 'bcrypt-ruby' #added to have hashed passwords
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.5' #added to provide testing capability
 end
 
 group :development do
